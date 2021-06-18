@@ -22,13 +22,21 @@ tabBtn.addEventListener("click", function(){
     })
 })
 
+function strCut(str){
+    if(str.length>20){
+        return str.slice(0,50) + "..."
+    }else{
+        return str
+    }
+}
+
 function render(leads) {
     let listItems = ""
     for (let i = 0; i < leads.length; i++) {
         listItems += `
             <li class="list-group-item bgc-transparent">
                 <a target='_blank' href='${leads[i]}'>
-                    ${leads[i]}
+                    ${strCut(leads[i])}
                 </a>
                 <button type="button" class="btn-close float-end" aria-label="Close"></button>
             </li>
